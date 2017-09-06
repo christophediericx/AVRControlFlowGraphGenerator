@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <Authors>Christophe Diericx</Authors>
+    <Description>Minimal generator for AVR assembly Control Flow Graphs.</Description>
+    <Copyright>Christophe Diericx</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AVRDisassembler" Version="0.2.0-beta" />
+    <PackageReference Include="CommandLineParser" Version="2.1.1-beta" />
+    <PackageReference Include="NLog" Version="5.0.0-beta10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
