@@ -1,8 +1,7 @@
 {
   "profiles": {
     "AVRControlFlowGraphGenerator": {
-      "commandName": "Project",
-      "commandLineArgs": "--input=\"C:\\Temp\\Blink.hex\" --output=\"C:\\Temp\\Blink.dot\""
+      "commandName": "Project"
     }
   }
 }
