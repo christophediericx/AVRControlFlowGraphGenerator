@@ -51,7 +51,7 @@ namespace AVRControlFlowGraphGenerator
 
             // Create direct address lookup table
             Logger.Debug("Creating address lookup table...");
-            AddressLookup = CreateAddressLookupTable(Disassembly);
+            AddressLookup = Disassembly.ToDictionary(stmt => stmt.Offset);
 
             // First pass: traverse the tree recursively (depth first)
             Logger.Info("First pass (traversing the tree)...");
@@ -127,7 +127,7 @@ namespace AVRControlFlowGraphGenerator
                             Relations.Add(relationToAdd);
                 }
             }
-
+            
             // Generate graph
             var graphBuilder = new StringBuilder();
             graphBuilder.AppendLine("digraph G {");
@@ -158,11 +158,6 @@ namespace AVRControlFlowGraphGenerator
                     File = file, JsonOutput = false
                 });
             return disAssembler.Disassemble().ToArray();
-        }
-
-        private static IDictionary<int,AssemblyStatement> CreateAddressLookupTable(IEnumerable<AssemblyStatement> statements)
-        {
-            return statements.ToDictionary(stmt => stmt.Offset);
         }
 
         private AssemblyStatement FindEntry(int offset)
